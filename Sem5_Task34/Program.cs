@@ -4,6 +4,7 @@
 // [345, 897, 568, 234] -> 2
 
 
+
 void fillArray(int[] array)
 {
   for (int i = 0; i < array.Length; i++)
