@@ -4,50 +4,47 @@
 // 1, -7, 567, 89, 223-> 3
 
 
-Console.WriteLine("Введите 5 чисел");
-// int a = Convert.ToInt32(Console.ReadLine());
-// int b = Convert.ToInt32(Console.ReadLine());
-// int c = Convert.ToInt32(Console.ReadLine());
-// int d = Convert.ToInt32(Console.ReadLine());
-// int f = Convert.ToInt32(Console.ReadLine());
+int Prompt (string message);
+{
+  System.Console.Write(message);
+  string value = Console.ReadLine();
+  int result = Convert.ToInt32(Console.ReadLine());
+  return result;
+}
 
-void Numbers (int n, int i)
+int [] InputArray (int length)
+{
+  int[] array = new int[length];
+  for (i = 0; i < array.length; i++)
+  {
+    array[i] = Prompt($"Введите {i + 1}-ый элемент");
+  }
+    return array;
+}
+
+void PrintArray (int[] array)
+{
+  for (i = 0; i < array.length; i++)
+  {
+    Console.WriteLine($"a[{i}] = array[{i}]");
+  }
+}
+
+int CountPositiveNumber (int[] array)
 {
   int count = 0;
-  for (i = 0; i < 5; i++)
+  for (i = 0; i < array.length; i++)
   {
-    int M = Convert.ToInt32(Console.ReadLine());
-    if (M > 0)
-    count = count + 1;
-    else return;
+    if (array[i] > 0)
+    {
+      count++;
+    }
   }
-  Console.WriteLine(count); 
+  return count;
 }
-Numbers(count);
 
-
-// return M;
-// int[]array = new int[M];
-// int count = 0;
-
-// // foreach (int number in array)
-// // {
-// //     if (number > 0)
-// //     {
-// //         count = count + 1;
-// //     }
-// //     else
-// //     return count;
-// // }
-// // Console.WriteLine($"Количество положительных чисел из введённых пользователем - {count} ");
-
-
-// void fillArray(int[] array){
-//   for (int i = 0; i < M; i++)
-//   {
-//         array[i] = Convert.ToInt32(Console.ReadLine());       
-//   }
-//   Console.WriteLine(String.Join(" ", array)); 
-// }
-
-// fillArray(array);
+int length = Prompt("Введите количество элементов больше >");
+int[] array;
+array = InputArray(length);
+PrintArray(array);
+Console.WriteLine($"Количество чисел больше 0 - {CountPositiveNumber(array)}");
